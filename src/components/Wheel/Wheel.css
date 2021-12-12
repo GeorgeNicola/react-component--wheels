@@ -20,7 +20,7 @@
     z-index:1;
     transform:scale(1.57);
 
-    background-image:url('../../assets/images/hallow.png');
+    background-image:url('https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/hallow.png');
     background-repeat: no-repeat;
     background-size:cover;
 }
@@ -33,7 +33,7 @@
     z-index:10;
     transform:scale(1.09);
 
-    background-image:url('../../assets/images/outer-wheel.png');
+    background-image:url('https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/outer-wheel.png');
     background-repeat: no-repeat;
     background-size:cover;
 }

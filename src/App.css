@@ -7,6 +7,6 @@ body{
     position:relative;
     width:100%;
     height:1000px;
-    background-image: url('./assets/images/Background.jpg');
+    background-image: url('https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/Background.jpg');
     background-size:cover;
 }

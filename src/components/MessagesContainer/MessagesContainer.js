@@ -1,3 +1,4 @@
+import React from 'react';
 import './MessagesContainer.css'
 import Congrats from '../Message/Congrats'
 import UsedSpin from '../Message/UsedSpin'

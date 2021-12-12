@@ -2,11 +2,17 @@ import React, { useRef, useState, useEffect } from 'react';
 import './Wheel.css';
 
 //Assets
-import wheelImg from '../../assets/images/wheel.png';
-import spinImg from '../../assets/images/spin.png';
-import loadingImg from '../../assets/images/loading.gif';
-import ticker from '../../assets/images/tiker.png';
-import tickSound from '../../assets/sounds/tick.mp3';
+// import wheelImg from '../../assets/images/wheel.png';
+// import spinImg from '../../assets/images/spin.png';
+// import loadingImg from '../../assets/images/loading.gif';
+// import ticker from '../../assets/images/tiker.png';
+// import tickSound from '../../assets/sounds/tick.mp3';
+
+let wheelImg = 'https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/wheel.png';
+let spinImg = "https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/spin.png";
+let loadingImg = 'https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/loading.gif';
+let ticker = 'https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/tiker.png';
+let tickSound = 'https://github.com/GeorgeNicola/react-component--wheels/blob/master/src/assets/sounds/tick.mp3?raw=true';
 
 //Components
 import MessagesContainer from '../MessagesContainer/MessagesContainer';
@@ -40,7 +46,7 @@ function Wheel({params}) {
 
         setTimeout(function(){
             setLoaded(true)
-            startWheel()
+            startWheel2()
         }, 1000)
     }
 

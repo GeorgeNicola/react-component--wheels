@@ -44,7 +44,7 @@ module.exports = function(_env, argv) {
             loader: "url-loader",
             options: {
               limit: 8192,
-              name: "static/media/[name].[hash:8].[ext]"
+              name: "static/media/[name].[ext]"
             }
           }
         },
@@ -56,14 +56,14 @@ module.exports = function(_env, argv) {
           test: /\.(eot|otf|ttf|woff|woff2)$/,
           loader: require.resolve("file-loader"),
           options: {
-            name: "static/media/[name].[hash:8].[ext]"
+            name: "static/media/[name].[ext]"
           }
         },
         {
           test: /\.mp3$/,
           loader: require.resolve("file-loader"),
           query: {
-            name: 'static/media/[name].[hash:8].[ext]'
+            name: 'static/media/[name].[ext]'
           }
         }
       ]
@@ -74,8 +74,8 @@ module.exports = function(_env, argv) {
     plugins: [
       isProduction &&
         new MiniCssExtractPlugin({
-          filename: "assets/css/[name].[contenthash:8].css",
-          chunkFilename: "assets/css/[name].[contenthash:8].chunk.css"
+          filename: "assets/css/[name].css",
+          chunkFilename: "assets/css/[name].css"
         }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "public/index.html"),
