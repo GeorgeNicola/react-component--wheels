@@ -1,23 +1,8 @@
-EASILY ADD A GAME IN THE PAGE USING:
-
-    <react-wheels name='NJ Wheel test'> </react-wheels>      
-    
-    <script src="./dist/assets/js/react-wheels.js"></script>
+IMPORT:
+    <link rel="stylesheet" href="https://georgenicola.github.io/react-component--wheels/dist/assets/css/main.css">
+    <script src="https://georgenicola.github.io/react-component--wheels/dist/assets/js/react-wheels.js"></script>
 
 
-EXAMPLE:
+USE COMPONENT:
+    <react-wheels name='test title'> </react-wheels>      
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>React App</title>
-    <link rel="stylesheet" href="dist/assets/css/main.css">
-  </head>
-  <body>
-
-    <react-wheels name='NJ Wheel test'> </react-wheels>      
-    
-    <script src="./dist/assets/js/react-wheels.js"></script>
-  </body>
-</html>
