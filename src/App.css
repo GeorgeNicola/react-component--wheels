@@ -10,3 +10,11 @@ body{
     background-image: url('https://raw.githubusercontent.com/GeorgeNicola/react-component--wheels/master/src/assets/images/Background.jpg');
     background-size:cover;
 }
+
+.white-title{
+    color:white;
+    text-align:center;
+    font-family:arial;
+    margin-top:0;
+    padding-top:20px;
+}
