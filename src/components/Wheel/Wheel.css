@@ -1,0 +1,88 @@
+.wheel-container{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+
+    width:600px;
+    height:600px;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.wheel-container:before {
+    content: "";
+    width:100%;
+    height: 100%;
+    position:absolute;
+    z-index:1;
+    transform:scale(1.57);
+
+    background-image:url('../../assets/images/hallow.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.wheel-container:after {
+    content: "";
+    width:100%;
+    height: 100%;
+    position:absolute;
+    z-index:10;
+    transform:scale(1.09);
+
+    background-image:url('../../assets/images/outer-wheel.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.wheel{
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:5;
+
+    transition-timing-function: ease-in-out;
+}
+
+.spin{
+    position:relative;
+    bottom:35px;
+    z-index:15;
+
+    width:21%;
+}
+
+.loading{
+    position:absolute;
+    z-index:20;
+
+    width:125px;
+}
+
+.ticker-container{
+    position:absolute;
+    top:-6%;
+    z-index:20;
+
+    width:16%;
+}
+
+.ticker{
+    width:100%;
+}
+
+.ticker-animation{
+    animation-name: tickerAnimation;
+    transform-origin: top;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes tickerAnimation {
+    0% { transform: rotate(0deg); }
+    30% { transform:rotate(-25deg); }
+    100% { transform:rotate(0deg); }
+}

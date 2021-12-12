@@ -1,0 +1,643 @@
+/* Move to SHARED if needed */
+.style888casino #fullContent  .brand-bttn.primary-full
+{
+    max-width: 280px;
+}
+
+.error .error-btn-positioning{
+    position: absolute;
+    right: -80px;
+    bottom: -70px;
+}
+
+.loader{
+   z-index:10;
+}
+
+.row.promotion_term_cond .tc-table{
+    margin: 10px 0 15px 0;
+}
+
+.row.promotion_term_cond p {
+    margin: 10px 0;
+}
+
+.row.promotion_term_cond .tc-title {
+    margin: 10px 0;
+    text-decoration:underline;
+}
+
+.row.promotion_term_cond .tc-title {
+    margin: 10px 0;
+    text-decoration:underline;
+}
+
+#wheel, .wheel{
+   transform: rotate(24deg);
+}
+
+.sound-box{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index:2;
+    right: -60px;
+    top: -70px;
+}
+
+.sound-img{
+    width:100%;
+    height:100%;
+}
+
+.sound-img:hover{
+    cursor: pointer;
+}
+
+
+#wheel-container .sound-on{
+   display:none;
+}
+
+.sup{
+    vertical-align: top; 
+    font-size: 0.6em; 
+}
+
+#gamePage{
+    margin-top: 0;
+}
+
+.style888casino #mainContent, .style777 #mainContent {
+    background-color: #000;	
+    background-size: cover;
+    background-position: center;
+}
+
+.disclaimer-container{display:none}
+
+
+.wheel-parent{
+    transition: none !important;
+    transform: rotate(24deg) !important;
+}
+
+.cover{
+   display: none !important;
+}
+
+.loader{
+   position: absolute !important;
+   opacity: .3;
+}
+
+.loader > div {
+   border: 0 !important;
+}
+
+#wheel{
+   transition: all 16s;
+    -webkit-transition: all 16s;
+    -moz-transition: all 16s;
+    -ms-transition: all 16s;
+    -o-transition: all 16s;
+    transition-timing-function: cubic-bezier(0, 0, 0.1, 1);
+}
+
+#wheelBg {
+    width: 100%;
+    height: 50%;
+    padding: 100px 0;
+    position: relative;
+    background-image: url($$bgMain$$);
+    overflow: hidden;
+}
+
+#wheel-container{
+    max-width: 600px;
+}
+
+#wheel-container::before{
+   content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: -10px;
+    margin: 0 auto;
+    background-image: url($$hallow$$);
+    opacity: 0.9;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.57);
+    z-index: 1;
+}
+
+#wheel-container::after{
+   content: "";
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   margin: 0 auto;
+   background-image: url($$wheelBorder$$);
+   background-repeat: no-repeat;
+   background-size: cover;
+   transform: scale(1.12);
+   z-index: 2;
+}
+
+#wheel-overlay{
+   position: absolute;
+   top: 0;
+   z-index: 4;
+}
+
+.welcome-wrapper{
+    position: absolute;
+    width: 18%;
+    top: 4%;
+    left: 35px;
+}
+
+.sentence-bg{
+    position: absolute;
+    top: 58%;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: none;
+}
+
+.sentence-bg h3{
+    background: none;
+}
+
+#simpleContentRepeater{
+    position: absolute;
+    top: 72%;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    background: none !important;
+    padding: 0 !important;
+}
+
+#tncsContainer{
+   margin-top: 25px;
+}
+
+.btn-spin-container{
+    width: 31%;
+    height: 31%;
+    position: absolute;
+    top: calc(50% - 11%);
+    left: calc(50% - 5.4%);
+    margin-left: -10%;
+    margin-top: -10%;
+    z-index: 5;
+}
+
+.btn-spin{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100%;
+   overflow: hidden;
+}
+
+.btn-spin.disable-btn{
+  cursor: default !important;
+}
+
+.gif-container{
+    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+    text-align: center;
+    background: none;
+}
+
+.gif-container img {
+    display: inline-block !important;
+}
+
+.btn-spin img {
+   width: auto;
+   height: 100%;
+}
+
+/*.btn-spin:hover{
+   background-position: 100% 0;
+}*/
+
+.btn-spin.hide-btn{
+   opacity: 0;
+   visibility: hidden;
+}
+
+h3 {
+    display: inline-block;
+    padding: 4px 5px;
+}
+.style888casino #fullContent  .sentence-bg, .style888casino #fullContent  .sentence {
+   background: transparent;
+}
+
+.style888casino #fullContent .wrapperGames, .style888casino #fullContent #simpleContentRepeater {
+    background: black;
+    padding: 25px 0;
+}
+
+body:not(.style777) .disclaimer {
+    width: 100%;
+    left: 0;
+    position: relative;
+    padding: 1rem 1rem 0.5rem !important;
+    z-index: 1;
+    line-height: 1.4;
+}
+
+#ticker{
+   top: 0;
+   left: 50%;
+   width: 1px;
+   margin-left: 0;
+}
+
+#ticker.active{
+   animation: decreaseWidth 6s ease forwards;
+}
+
+#ticker-container{
+    transform-origin: top center;
+    width: 14%;
+    top: -7%;
+    left: 59%;
+    z-index: 6;
+}
+
+#ticker-container.animateTicker{
+  animation-name: pinWheel;
+  animation-duration: 100ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.sound-element{
+   display: none;
+}
+
+.messages{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    border-top-left-radius: 300px;
+    border-top-right-radius: 300px;
+    top: 0 !important;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 9px;
+    transform-origin: bottom center;
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform:  rotate(180deg);
+    -o-transform:  rotate(180deg);
+    padding: 45px 110px 130px 110px;
+    background: none !important;
+    color: #000 !important;
+    z-index: 4;
+}
+
+.message-overlay{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    border-top-left-radius: 300px;
+    border-top-right-radius: 300px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: bottom center;
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform:  rotate(180deg);
+    -o-transform:  rotate(180deg);
+    background: rgba(255, 255, 255,.8) !important;
+     opacity: 0;
+    z-index: 1;
+    transition: all 0.5s linear;
+}
+
+.messages div{
+    color: #000 !important;
+}
+
+.messages.opacity-1{
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform:  rotate(0);
+    -o-transform:  rotate(0);
+}
+
+.message-overlay.opacity-1{
+    transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform:  rotate(0);
+    -o-transform:  rotate(0);
+}
+
+.messages h1{
+   padding: 0 !important;
+   margin: 0 !important;
+   font-size: 28px !important;
+   line-height: 34px;
+   color: #000 !important;
+}
+
+.messages a.brand-bttn{
+   margin: 0 !important;
+   line-height: initial !important;
+   padding: 5px 18px !important;
+}
+
+.message {
+    transition: none;
+}
+
+.message h1 span,
+.message h2 span {
+    color: #255db7 !important;
+}
+
+.message h2{
+    color: #000 !important;
+    margin: 0 !important;
+    padding: 5px 0 !important;
+}
+
+.message p{
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0 !important;
+  padding: 0 0 .4em 0;
+  line-height: 20px;
+  color: #08357e !important;
+  font-family: Lobster,cursive !important
+}
+
+.message p.message-title{
+  color: #f83939 !important;
+}
+
+.usedSpin p {
+    font-size: 25px;
+}
+
+.message span.promocode{
+  font-weight: bold;
+}
+
+.messages div{
+   height: auto;
+}
+
+.message a {
+  text-decoration: none !important;
+}
+
+.message p span{
+   color: #f83939 !important;
+}
+
+.message p a{
+   text-decoration: underline !important;
+}
+
+.message .expired-message-bottom-margin{
+   margin-bottom: 10px !important;
+}
+
+.welcome{
+   display: none ;
+}
+
+.horizontal-line{
+   width: 100%;
+   height: 50px;
+   background-image: url($$horizontalLine$$);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   display: block;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   right: 0;
+   margin-top: -50px;
+   z-index: 2;
+}
+
+.node{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nodeDot{
+    opacity: 0;
+    visibility: hidden;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: black;
+    z-index: 2;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+#wheel.active{
+  -webkit-animation: rotating 12s linear infinite;
+  -moz-animation: rotating 12s linear infinite;
+  -ms-animation: rotating 12s linear infinite;
+  -o-animation: rotating 12s linear infinite;
+  animation: rotating 12s linear infinite;
+}
+
+
+/*** keyframes ***/
+@keyframes pinWheel {
+ from {
+    transform: rotate(0deg);
+  }
+ to {
+    transform: rotate(-40deg);
+  }
+}
+
+@keyframes decreaseWidth {
+ from {
+    width: 30px;
+    margin-left: -15px;
+  }
+ to {
+    width: 1px;
+    margin-left: 0;
+  }
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1024px){
+   .cgp-mobile.cgp-landscape .messages {
+       top: 0;
+   }
+   .welcome-wrapper {
+       width: 15%;
+   }
+
+/*
+   #gamePage{
+       margin-top: 60px;
+   }
+*/
+}
+
+
+@media only screen and (max-width: 920px) {
+    #wheelBg {
+        padding: 150px 0;
+    }
+
+    .welcome-wrapper {
+       position: absolute;
+       width: 15%;
+       top: 3%;
+       left: 15px;
+   }
+}
+
+@media only screen and (max-width: 640px) {
+   .error .error-btn-positioning{
+       position: absolute;
+       right: -60px;
+       bottom: -50px;
+   }
+
+   .sound-box{
+       right: 0px;
+       top: -90px;
+   }
+  .messages h1{
+     font-size: 22px !important;
+     line-height: 22px;
+  }
+
+  /*.welcome-wrapper{
+    position: absolute;
+    width: 15%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0px auto;
+    padding: 20px 0;
+  }*/
+
+  #wheelBg {
+    padding: 145px 0;
+   }
+
+}
+
+@media (min-width:400px) and (max-width: 600px){
+    .messages .message{
+         margin-bottom: 12px;
+    }
+
+}
+
+
+@media only screen and (max-width: 428px) {
+   .loader{
+      width: 50px!important;
+      height: 50px!important;
+   }
+
+  .messages{
+     padding: 10px 65px 68px 65px;
+     border-top: 1px solid #000;
+     border-left: 1px solid #000;
+     border-right: 1px solid #000;
+     z-index: 4;
+  }
+
+  .messages h1{
+     font-size: 13px !important;
+     line-height: 15px;
+  }
+
+  .message h2 {
+      font-size: 10px !important;
+      margin: 0 !important;
+      padding: 2px 0 !important;
+   }
+
+  .message p{
+     font-size: 14px !important;
+     line-height: 12px;
+     padding: 0 0 .3em 0;
+   }
+
+  .messages div {
+    line-height: 18px;
+    font-size: 10px;
+  }
+
+   .welcome-wrapper {
+       width: 25%;
+   }
+
+   #wheelBg {
+     padding: 160px 0;
+   }
+
+   #simpleContentRepeater{
+      top: 82%;
+    }
+
+}
+
+
+@media only screen and (max-width: 400px) {
+   .messages .expired, .messages .usedSpin{
+      margin-bottom: 5px;
+   }
+
+  .message p{
+     font-size: 12.5px !important;
+   }
+}
