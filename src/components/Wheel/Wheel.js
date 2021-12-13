@@ -164,10 +164,34 @@ function Wheel({params}) {
     const requestClaim = () => {
         setLoaded(false)
 
-        setTimeout(function(){
+        // setTimeout(function(){
+        //     setLoaded(true)
+        //     startWheel2()
+        // }, 1000)
+
+        fetch("https://stage-us.888casino.com/claim/random/?guid=124124", {
+            method: 'POST',
+            // headers: {
+            //     "Content-type": "application/json; charset=UTF-8",
+            // },
+            // body: JSON.stringify(data),
+        })
+        .then(response => response.text())
+        .then(data => {
+            let dataWrapper = document.createElement("div");
+                dataWrapper.innerHTML = data;
+            let dataValue = dataWrapper.querySelector("#fullContent > div").innerHTML;
+
             setLoaded(true)
-            startWheel2()
-        }, 1000)
+            if(dataValue == 3) setMessageStatus("TechnicalError")
+            else if (dataValue == 4) setMessageStatus("ExpiredCampaign")
+            else startWheel2()
+        })
+        .catch(err => {
+            console.log(err)
+            setLoaded(true)
+            setMessageStatus("TechnicalError")
+        })
     }
 
     const play = () => { 
