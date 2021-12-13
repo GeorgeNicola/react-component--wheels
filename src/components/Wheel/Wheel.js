@@ -179,8 +179,8 @@ function Wheel({params}) {
             {(messageStatus === "none") ? "" : <MessagesContainer messageStatus={messageStatus}/>}
             {(loaded) ? "" : <img className="loading" src={loadingImg} alt="loading"/>}
 
-            <img className="wheel-bg" src={wheelImg} alt="wheel" ref={wheel}/>
-            <img className="spin-cta" src={spinImg} alt="spin" onClick={play}/>
+            <img className="wheel" src={wheelImg} alt="wheel" ref={wheel}/>
+            <img className="spin" src={spinImg} alt="spin" onClick={play}/>
             <div className="ticker-container">
                 <img className="ticker" src={ticker} alt="ticker"/>
             </div>
