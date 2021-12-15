@@ -183,14 +183,16 @@ function Wheel({params}) {
             let dataValue = dataWrapper.querySelector("#fullContent > div").innerHTML;
 
             setLoaded(true)
-            if(dataValue == 3) setMessageStatus("TechnicalError")
-            else if (dataValue == 4) setMessageStatus("ExpiredCampaign")
-            else startWheel2()
+            startWheel2()
+            // if(dataValue == 3) setMessageStatus("TechnicalError")
+            // else if (dataValue == 4) setMessageStatus("ExpiredCampaign")
+            // else startWheel2()
         })
         .catch(err => {
             console.log(err)
             setLoaded(true)
-            setMessageStatus("TechnicalError")
+            startWheel2()
+            // setMessageStatus("TechnicalError")
         })
     }
 
