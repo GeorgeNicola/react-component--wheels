@@ -15,12 +15,12 @@ let ticker = 'https://raw.githubusercontent.com/GeorgeNicola/react-component--wh
 let tickSound = 'https://github.com/GeorgeNicola/react-component--wheels/blob/master/src/assets/sounds/tick.mp3?raw=true';
 
 //Components
-import MessagesContainer from '../MessagesContainer/MessagesContainer';
+import {MessagesContainer} from '../MessagesContainer/MessagesContainer';
 import { CONFIG } from '../../common/configuration';
 
 
 
-function Wheel({params}) {
+export const Wheel = ({params}) => {
     const [messageStatus, setMessageStatus] = useState("none")
     const [loaded, setLoaded] = useState(true) 
     const wheel = useRef(null);
@@ -213,5 +213,3 @@ function Wheel({params}) {
         </div>
     )
 }
-
-export default Wheel

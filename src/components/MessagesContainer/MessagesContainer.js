@@ -1,32 +1,19 @@
 import React from 'react';
 import './MessagesContainer.css'
-import Congrats from '../Message/Congrats'
-import UsedSpin from '../Message/UsedSpin'
-import ExpiredCampaign from '../Message/ExpiredCampaign'
-import TechnicalError from '../Message/TechnicalError'
+import {Congrats} from '../Message/Congrats'
+import {UsedSpin} from '../Message/UsedSpin'
+import {TechnicalError} from '../Message/TechnicalError'
+import {ExpiredCampaign} from '../Message/ExpiredCampaign'
 
-
-const ReturnMessage = ({messageStatus}) => {
-    switch (messageStatus) {
-        case "Congrats":
-            return <Congrats/>
-        case "UsedSpin":
-            return <UsedSpin/>
-        case "TechnicalError":
-            return <TechnicalError/>
-        case "ExpiredCampaign":
-            return <ExpiredCampaign/>
-        default:
-            return <div></div>
-        }
-}
-
-const MessagesContainer = ({messageStatus}) => {
+export const MessagesContainer = ({messageStatus}) => {
     return(
-        <div className="messages-container messageAnimation">
-            <ReturnMessage messageStatus={messageStatus}/>
+        <div className="messages-container messages-container--animation">
+            {  
+                (messageStatus == "Congrats") ? <Congrats/> :
+                (messageStatus == "UsedSpin") ? <UsedSpin/> :
+                (messageStatus == "TechnicalError") ? <TechnicalError/> :
+                (messageStatus == "ExpiredCampaign") ? <ExpiredCampaign/> : <div></div>
+            }
         </div>
     )
 }
-
-export default MessagesContainer

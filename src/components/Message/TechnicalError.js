@@ -1,12 +1,10 @@
 import React from 'react';
 import './Message.css';
 
-const TechnicalError = () => {
+export const TechnicalError = () => {
     return(
         <div className="message technical-error">
             <p> Technical Error </p>
         </div>
     )
 }
-
-export default TechnicalError

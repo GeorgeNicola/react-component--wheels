@@ -1,12 +1,10 @@
 import React from 'react';
 import './Message.css';
 
-const ExpiredCampaign = () => {
+export const ExpiredCampaign = () => {
     return(
         <div className="message technical-error">
             <p> Expired campaign </p>
         </div>
     )
 }
-
-export default ExpiredCampaign
