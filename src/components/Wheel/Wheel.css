@@ -77,7 +77,7 @@
 .ticker-animation {
   animation-name: tickerAnimation;
   transform-origin: top;
-  animation-duration: 0.4s;
+  animation-duration: 0.25s;
   animation-iteration-count: 1;
 }
 
@@ -85,7 +85,7 @@
   0% {
     transform: rotate(0deg);
   }
-  30% {
+  35% {
     transform: rotate(-25deg);
   }
   100% {

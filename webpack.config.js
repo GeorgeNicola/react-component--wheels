@@ -8,12 +8,20 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = function(_env, argv) {
   const isProduction = argv.mode === "production";
   const isDevelopment = !isProduction;
+  // const campaignID = process.env.npm_config_campaignid;
+  // npm run buildtest --campaignid=1
+  const campaignID = argv.campaignid;
+  console.log("Campaign ID: ", campaignID)
+
+
+  let distFolder = `dist/${campaignID ? campaignID : ""}`;
 
   return {
     devtool: isDevelopment && "cheap-module-source-map",
     entry: "./src/index.js",
     output: {
-      path: path.resolve(__dirname, "dist"),
+      // path: path.resolve(__dirname, "dist/"),
+      path: path.resolve(__dirname, distFolder),
       filename: "assets/js/react-wheels.js",
       publicPath: "/",
     },

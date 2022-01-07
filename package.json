@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "buildtest": "webpack --mode production --campaignid=1"    
   },
   "dependencies": {
     "react": "^16.9.0",
