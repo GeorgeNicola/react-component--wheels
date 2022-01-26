@@ -12,10 +12,10 @@ export default function App({name}) {
   const [params, setParams] = useState({})
   const [userData, setUserData] = useState({})
   const [campaignData, setCampaignData] = useState({})
+  const [error, setError] = useState(false)
+  
 
-
-  //Get user data
-  useEffect(() => {
+  const getUserData = () => {
     if(typeof pf != 'undefined') {
       let userData = pf.web.rich.data.userdata;
 
@@ -29,109 +29,125 @@ export default function App({name}) {
         language: userData.applicationcontext.language,
       })
     }
+  }
+
+  const datesAreOnSameDay = (startDate, endDate, currentDate) => {
+      return (startDate <= currentDate && endDate > currentDate);
+  }
+
+  const getCampaignData = () =>{
+    if(typeof pf != 'undefined') {
+      let userData = pf.web.rich.data.userdata;
+      let serverDate = new Date(userData.applicationcontext.serverdatetime);
+      let campaigns = userData.marketingcampaigndata.marketingcampaigns[0].campaigns;
+
+      let activeCampaigns = [];
+      let availableCampaigns = [];
+      let availablePrizes = [];
+
+      if(campaigns != null){
+        campaigns.forEach(function (element) {
+          // console.log("campaign:", element);
+          if (element.scheduledrules != null){
+            element.scheduledrules.forEach(function (campaignObj) {
+              if (campaignObj.rulecompletions != null && datesAreOnSameDay(new Date(campaignObj.startdate), new Date(campaignObj.enddate), new Date(serverDate))) {
+                activeCampaigns.push(campaignObj)
+                campaignObj.rulecompletions.forEach(function (element) {
+                  //console.log('rulecompletions',element);
+                  if (element.completionactions != null) {
+                    element.completionactions.forEach(function (element) {
+                      //console.log('completionactions',element);
+                      if (element.offers != null) {
+                      element.offers.forEach(function (element) {
+                          if(element.claimbonusstatus === 5 && element.claimidentifier !== null) {
+                            // console.log(element);
+                            availableCampaigns.push(campaignObj)
+                            availablePrizes.push(element);
+                          }
+                      });
+                      }
+                    });
+                  }
+                });
+              }
+            })
+          }
+        });
+      }
+
+      // console.log("marketingcampaigndata", userData.marketingcampaigndata)
+      setCampaignData({
+        activeCampaigns: activeCampaigns,
+        availableCampaigns: availableCampaigns,
+        availablePrizes: availablePrizes,
+      })
+    }
+  }
+
+  //Get user & campaign data
+  useEffect(() => {
+    try{
+      getUserData();
+      getCampaignData();
+    } catch(e) {
+      console.log("Error: ", e)
+      setError(true);
+    }
   }, [])
 
-
-  //Get Campaigns data
-  // useEffect(() => {
-  //   if(typeof pf != 'undefined') {
-  //     let userData = pf.web.rich.data.userdata;
-
-  //     let serverTime = userData.applicationcontext.serverdatetime;
-  //     let serverMonth = serverTime.getMonth() < 10 ? '0' + eval(serverTime.getMonth() + 1) : eval(serverTime.getMonth() + 1);
-  //     let serverDay = serverTime.getDay() < 10 ? '0' + serverTime.getDay() : serverTime.getDay();
-  //     let serverDate = serverTime.getFullYear() + '-' + serverMonth + '-' + serverDay;
-
-  //     $.each(campaignList, function (indexA, thisCampaign) {
-  //     $.each(thisCampaign.scheduledrules, function (indexB, thisRule) {
-  //         var endDate = thisRule.enddate;
-  //         var startDate = thisRule.startdate;
-
-  //         var newEnd = new Date(endDate);
-  //         var newStart = new Date(startDate);
-
-  //         if (serverTime.getTime() < newEnd.getTime()) {
-  //             var currentCampaignStatus = thisRule.status;
-  //             if (currentCampaignStatus == 4 || currentCampaignStatus == 1) {
-  //                 window.thisRule = thisRule;
-  //                 var startDate = thisRule.startdate;
-  //                 var ruleID = thisRule.ruleid;
-
-  //                 /* Get Only Active Campaign */
-  //                 var thisRuleCompletions = thisRule.rulecompletions;
-  //                 if (thisRuleCompletions != null) {
-  //                     $.each(thisRuleCompletions, function (indexC, thisRuleItem) {
-
-  //                         var ActiveCampaign = thisRuleItem.completionactions[0];
-
-    
-  //                         /* Get Only The Randome Prize That Player Can Get */
-  //                         var activePrize = ActiveCampaign.offers;
-                          
-  //                         /* Get all active campaigns */
-  //                         allActiveCampaigns.push(ActiveCampaign)
-
-  //                         $.each(activePrize, function (indexD, value) {
-  //                             if (claimPrize == null) {
-  //                                 if (value.claimbonusstatus != null) {
-  //                                     if (value.claimbonusstatus == 5) {
-  //                                         claimPrize = {
-  //                                             'status': activePrize[indexD].claimbonusstatus,
-  //                                             'guid': activePrize[indexD].claimidentifier,
-  //                                             'bonus': activePrize[indexD].bonusofferdata,
-  //                                             'name': getPrizeName(activePrize[indexD])
-  //                                         };
-  //                                         claimGuid = claimPrize.guid;
-  //                                         claimName = claimPrize.name;
-  //                                         claimRuleID = ruleID;
-  //                                         promotionID = ActiveCampaign.promotionid;
-
-  //                                         availablePrizes.push(claimPrize);
-
-
-  //                                         /* Get Available Campaigns Array */
-  //                                         availableArrays.push(thisRule);
-  //                                         /* Get Available Offers Array */
-  //                                         availableOffersArray.push(thisRule.ruleactions[0]);  
-                                          
-
-  //                                         if (valid) console.log(p('> promotionid:\t\t\t\t' + ActiveCampaign.promotionid), c('#999999'));
-  //                                         if (valid) console.log(p('> claimPrize.status:\t\t\t' + claimPrize.status), c('#999999'));
-  //                                         if (valid) console.log(p('> claimPrize.guid:\t\t\t' + claimPrize.guid), c('#999999'));
-  //                                         if (valid) console.log(p('> claimPrize.name:\t\t\t' + claimPrize.name), c('#999999'));
-  //                                         if (valid) console.log(' ');
-  //                                         $('.left-area').removeAttr('style');
-  //                                         $('#chests').removeAttr('style');
-
-  //                                     }
-  //                                 }
-  //                             }
-  //                         });
-
-
-  //                       });
-  //                     }
-  //               }
-  //         }
-  //       });
-  //     });
-
-
-
-
-  //     console.log(userData.marketingcampaigndata)
-  //     setCampaignData({
-
-  //     })
-  //   }
-  // }, [])
-
-
-  useEffect(() => {
-    console.log("User Data: ", userData);
-  })
-
+  
   //Handle user data from params
+  useEffect(() => {
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    
+    setParams({...params, 
+      guid: urlParams.get('guid'),
+      username: urlParams.get('username'),
+      randomChosenPackage: urlParams.get('RandomChosenPackage')
+    })
+  }, []) 
+
+  return (
+    <div className="App">
+      <h1 className="white-title"> {name ? name : "Default Title"}</h1>
+      <Wheel params={params} userData={userData} campaignData={campaignData} error={error}/>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //Handle user data from params
   // useEffect(() => {
   //   const queryString = window.location.search
   //   const urlParams = new URLSearchParams(queryString)
@@ -142,16 +158,6 @@ export default function App({name}) {
   //     randomChosenPackage: urlParams.get('RandomChosenPackage')
   //   })
   // }, []) 
-
-  return (
-    <div className="App">
-      <h1 className="white-title"> {name ? name : "Default Title"}</h1>
-      <Wheel params={params}/>
-    </div>
-  );
-}
-
-
 
 
 

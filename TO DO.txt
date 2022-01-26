@@ -1,0 +1,28 @@
+Config:
+- pass num of prizes
+- pass claim api endpoint
+- pass sound on/off (pass sound url)
+- ticker on/off
+- autoplay after x seconds (max 5s / leave empty if autoplay off)
+
+
+Creatives:
+- pass images
+- pass messages
+
+
+
+TO DO:
+- testing mode based on mkw ( is(testingMode) console.log(...) )
+- different displaying of messages based on input name 
+- detect language from CGP or idk
+- for arabic, alignment is to right
+
+
+
+
+
+Checks for content editors:
+- make sure the image has the top prize alligned in the middle
+- add regular sizes of the images in the input field name
+

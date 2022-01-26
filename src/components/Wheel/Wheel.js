@@ -16,14 +16,34 @@ import { CONFIG } from '../../common/configuration';
 import MESSAGESTATUS from '../../common/messageStatus';
 
 
-export const Wheel = ({params}) => {
+export const Wheel = ({ params, userData, campaignData, error}) => {
     const [messageStatus, setMessageStatus] = useState(MESSAGESTATUS.none);
+    const [canPlay, setCanPlay] = useState(false);
     const [loaded, setLoaded] = useState(true);
 
     const tickTrigger = new Audio(tickSound);
     const wheel = useRef(null);
     let tickTriggerInterval = null;
-    
+
+    //Handle state
+    useEffect(()=>{
+        console.log("User Data: ", userData);
+        console.log("Campaign Data: ", campaignData);
+        if(error){
+            setMessageStatus(MESSAGESTATUS.technicalError)
+        } else if (campaignData.activeCampaigns && campaignData.activeCampaigns.length == 0){
+            setMessageStatus(MESSAGESTATUS.expiredCampaign)
+        } else if (campaignData.availableCampaigns && campaignData.availableCampaigns.length == 0 && 
+                   campaignData.activeCampaigns && campaignData.activeCampaigns.length > 0) {
+            setMessageStatus(MESSAGESTATUS.usedSpin)
+        } else {
+            if (campaignData.availablePrizes && campaignData.availablePrizes.length > 0) {
+                setCanPlay(true)
+            } else {
+                setMessageStatus(MESSAGESTATUS.technicalError)
+            }
+        }
+    })
 
     const startTickListener = () => {
         const tick = () => {
@@ -121,8 +141,10 @@ export const Wheel = ({params}) => {
     }
 
     const play = () => { 
-        startTickListener();
-        startWheel();
+        if(canPlay){
+            startTickListener();
+            startWheel();
+        }
     }
 
     return(
